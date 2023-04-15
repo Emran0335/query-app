@@ -1,26 +1,25 @@
 import { useEffect, useState } from "react";
-import data from "./components/data";
 import Question from "./components/Question";
+import data from "./components/data";
 
 function App() {
-	const [questions, setQuestions] = useState(data);
+  const [questions, setQuestions] = useState(data);
 
- useEffect(() => {
-  setQuestions(()=> questions)
- }, [questions]);
-
+  useEffect(() => {
+    setQuestions(() => questions);
+  }, [questions]);
 
   return (
-	<main>
-		<div className="container">
-			<h3>qustions and answers about login</h3>
-			<section className="info">
-				  {questions.map((question) => (
-					  <Question key={question.id} {...question} />
-				))}
-			</section>
-	  </div>
-	  </main>
+    <main>
+      <div className="container">
+        <h3>qustions and answers about login</h3>
+        <section className="info">
+          {questions.map((question) => (
+            <Question key={question.id} {...question} />
+          ))}
+        </section>
+      </div>
+    </main>
   );
 }
 
